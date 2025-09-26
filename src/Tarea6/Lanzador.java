@@ -7,8 +7,15 @@ import java.util.Scanner;
 public class Lanzador {
     public static void ejecutarPing(String ip) {
         try {
-            // Creamos el comando ping con la ip que viene de Interfaz
-            ProcessBuilder pb = new ProcessBuilder("ping","-c","4", ip);
+
+            String os = System.getProperty("os.name").toLowerCase();
+            ProcessBuilder pb;
+
+            if(os.contains("win")) {
+                pb = new ProcessBuilder("ping", "-n", "4", ip);
+            } else {
+                pb = new ProcessBuilder("ping", "-c", "4", ip);
+            }
 
             // Redirigimos la salida a la consola
             pb.inheritIO();
