@@ -29,9 +29,7 @@ public class Tarea8 extends Thread {
     }
 
     /**
-     * El método main es el punto de entrada. Crea y lanza dos
-     * hilos ("Lucas" y "Andy") y luego imprime un mensaje
-     * para indicar que el hilo principal ha terminado sus tareas.
+     * El método main es el punto de entrada.
      */
     public static void main(String[] args) {
         new Tarea8("Diego",3).start();
