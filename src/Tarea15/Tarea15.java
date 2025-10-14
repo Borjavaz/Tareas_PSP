@@ -13,7 +13,7 @@ public class Tarea15 extends Thread {
             // Cada hilo escribe su nombre e iteración 8 veces
             for (int i = 1; i <= 8; i++) {
                 System.out.println("Nombre del hilo: " + getName() + ", Iteración: " + i);
-                Thread.sleep(10000000);
+                Thread.sleep(100);
             }
             System.out.println( getName() + " ha terminado su ejecución.");
         } catch (InterruptedException e) {
