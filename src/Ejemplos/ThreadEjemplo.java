@@ -1,3 +1,5 @@
+package Ejemplos;
+
 public class ThreadEjemplo extends Thread {
 
     /**

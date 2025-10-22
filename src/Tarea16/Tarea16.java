@@ -1,14 +1,6 @@
 package Tarea16;
 
-    class Contador {
-        private int valor = 0;
-        //Ahora solo un hilo se puede sincronizar a la vez
-
-        public synchronized void incrementar() { valor++; }
-        public int obtenerValor() { return valor; }
-    }
-
-    class HiloContador extends Thread {
+class HiloContador extends Thread {
         private Contador contador;
         public HiloContador(Contador c) { this.contador = c; }
 
