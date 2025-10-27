@@ -1,7 +1,5 @@
 package R1;
 
-import java.util.Random;
-
 public class Hilo extends Thread {
 
     public Hilo(String nombre) {
@@ -24,7 +22,7 @@ public class Hilo extends Thread {
 
             int tiempoEspera = 1;
             try {
-// Hilo se bloquea durante el tiempo generado
+            // Hilo se bloquea durante el tiempo generado
                 Thread.sleep(tiempoEspera);
             } catch (InterruptedException e) {
                 System.err.println(getName() + " fue interrumpido.");

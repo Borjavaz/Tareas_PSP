@@ -3,13 +3,14 @@ package Tarea14;
 public class Tarea14 {
 
     public static double capital = 1000.0;
+    private static final Object lock = new Object();
 
     // Hilo que registra los ingresos
     static class TotalIngresos implements Runnable {
         @Override
         public void run() {
             for (int i = 0; i < 5000; i++) {
-                synchronized (Tarea14.class) { // Sirve para que se sincronice el acceso a la variable compartida
+                synchronized (lock) { // Sirve para que se sincronice el acceso a la variable compartida
                     double saldoActual = capital;
                     try {
                         Thread.sleep(1);
@@ -27,7 +28,7 @@ public class Tarea14 {
         @Override
         public void run() {
             for (int i = 0; i < 3000; i++) {
-                synchronized (Tarea14.class) { // Sirve para que se sincronice el acceso a la variable compartida
+                synchronized (lock) { // Sirve para que se sincronice el acceso a la variable compartida
                     double saldoActual = capital;
                     try {
                         Thread.sleep(1);

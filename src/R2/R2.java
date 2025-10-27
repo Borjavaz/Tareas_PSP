@@ -1,7 +1,5 @@
 package R2;
 
-import Tarea15.Tarea15;
-
 public class R2{
 
     public static void main(String[] args) {

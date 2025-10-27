@@ -1,10 +1,8 @@
 package R1;
 
-
-
 public class R1 {
     public static void main(String[] args) {
-// Crear dos hilos
+// Crear  hilos
         Hilo hilo1 = new Hilo("Torno 1");
         Hilo hilo2 = new Hilo("Torno 2");
         Hilo hilo3 = new Hilo("Torno 3");
@@ -16,7 +14,7 @@ public class R1 {
         hilo3.start();
         hilo4.start();
 
-// Esperar a que ambos hilos terminen
+// Esperar a que los hilos terminen
         try {
             hilo1.join();
             hilo2.join();
