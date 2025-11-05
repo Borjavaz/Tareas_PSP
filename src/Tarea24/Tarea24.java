@@ -17,6 +17,8 @@ public class Tarea24 {
 
             InetAddress local = InetAddress.getLocalHost();
             System.out.println("La direccion ip de tu propia maquina es: " + local.getHostAddress());
+            System.out.println(" ");
+            System.out.println("El nombre del equipo es: " + local.getHostName());
 
         }catch (UnknownHostException e){
             e.printStackTrace();
