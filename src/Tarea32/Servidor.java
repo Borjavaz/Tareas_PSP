@@ -74,7 +74,6 @@ public class Servidor {
 
         //Si la palabra esta vacia print de que no se encontró ninguna palabra
         //Devuelve la palabra mas larga y la longitud de esta
-
         if (masLarga.isEmpty()) {
             return "No se encontraron palabras válidas.";
         }

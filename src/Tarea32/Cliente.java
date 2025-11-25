@@ -55,7 +55,6 @@ public class Cliente {
                         paqueteEntrada.getOffset(),
                         paqueteEntrada.getLength()
                 );
-
                 System.out.println("Servidor: " + respuestaServidor.trim());
             }
 
