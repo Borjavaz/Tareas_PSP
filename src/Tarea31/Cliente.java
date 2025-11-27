@@ -37,7 +37,6 @@ public class Cliente {
                     System.out.println("Finalizando conversación...");
                     break;
                 }
-
                 buffer = msj.getBytes();
 
                 DatagramPacket pregunta = new DatagramPacket(buffer, buffer.length, direccionServidor, puerto_servidor);
