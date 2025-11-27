@@ -1,25 +1,54 @@
 ```mermaid
 sequenceDiagram
-participant Cliente
-participant Servidor
 
-Cliente->>+Servidor: Solicitud de cálculo (operandos, tipo de operación)
-Note right of Cliente: Por ejemplo: 4 + 5, o sin(30), o calcular interés compuesto
-Servidor->>Servidor: Procesar operación (básica, trigonométrica o financiera)
-Servidor-->>-Cliente: Respuesta con resultado
+    participant Cliente
+    participant Servidor
 
-Cliente->>+Servidor: Enviar 4, 5 y "+" (Suma)
-Note right of Cliente: Operación básica
-Servidor->>Servidor: Realizar suma: 4 + 5
-Servidor-->>-Cliente: Resultado: 9
+    Cliente->>+Servidor: 1. Solicitud de Cálculo (operandos, tipo de operación)
+    Note right of Cliente: Por ejemplo: "4 + 5" o "sin(30°)"
 
-Cliente->>+Servidor: Enviar 30 y "sin" (Seno)
-Note right of Cliente: Operación trigonometrica
-Servidor->>Servidor: Calcular sin(30)
-Servidor-->>-Cliente: Resultado: 0.5
+    activate Servidor
+    alt Solicitud válida y procesable
+        Servidor->>Servidor: 2. Procesar Operación (validación y cálculo)
+        Note left of Servidor: Identifica y ejecuta la operación.
+        Servidor-->>-Cliente: 3.1 Respuesta con el resultado
+    else Solicitud inválida o error de servidor
+        Servidor-->>-Cliente: 3.2 Respuesta con mensaje de error
+    end
 
-Cliente->>+Servidor: Enviar parámetros de interés compuesto
-Note right of Cliente: Operación financiera
-Servidor->>Servidor: Calcular interés compuesto
-Servidor-->>-Cliente: Resultado financiero
+    Note right of Cliente: Operación Básica
+    Cliente->>+Servidor: Solicitud: "4 + 5"
+
+    activate Servidor
+
+    alt Ejemplo 1 procesable
+        Servidor->>Servidor: Realizar suma: 4 + 5
+        Servidor-->>-Cliente: 9
+    else Solicitud inválida o error de servidor
+        Servidor-->>-Cliente: 3.2 Respuesta con mensaje de error
+    end
+
+
+    Note right of Cliente: Operación Trigonométrica
+    Cliente->>+Servidor: Solicitud: "sin(30)"
+
+    activate Servidor
+
+    alt Ejemplo 2 procesable
+        Servidor->>Servidor: Calcular sin(30)
+        Servidor-->>-Cliente: 0.5
+    else Solicitud inválida o error de servidor
+        Servidor-->>-Cliente: 3.2 Respuesta con mensaje de error
+    end
+
+    Note right of Cliente: Operación Financiera
+    Cliente->>+Servidor: Solicitud: "Interés Compuesto" (P, r, n, t)
+
+    activate Servidor
+    alt Ejemplo 3 procesable
+        Servidor->>Servidor: Calcular valor futuro
+        Servidor-->>-Cliente: Valor Financiero
+    else Solicitud inválida o error de servidor
+        Servidor-->>-Cliente: 3.2 Respuesta con mensaje de error
+    end
 ```
