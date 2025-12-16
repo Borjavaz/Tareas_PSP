@@ -15,7 +15,7 @@ public class AgenteCorreoApp {
 
         // inicio el servicio
         EnviadorSmtp enviador = new EnviadorSmtp(mailSession);
-        LectorImap lector = new LectorImap(mailSession, config);
+        LectorPop3 lector = new LectorPop3(mailSession, config);
 
         // PARTE DEL AGENTE
 
@@ -24,11 +24,11 @@ public class AgenteCorreoApp {
 
         // Espero 2 seg para que el correo llegue al server
         try {
-            System.out.println("Esperando 2 segundos para asegurar la llegada del email...");
-            Thread.sleep(2000);
+            System.out.println("Esperando 5 segundos para asegurar la llegada del email...");
+            Thread.sleep(5000);
         } catch (InterruptedException ignored) {}
 
-        //Lectura (IMAP)
+        //Lectura (POP3)
         lector.leerBandejaEntrada();
     }
 }

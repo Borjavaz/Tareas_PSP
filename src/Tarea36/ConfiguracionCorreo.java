@@ -8,14 +8,14 @@ import java.util.Properties;
 public class ConfiguracionCorreo {
 
     //Credenciales y Servidores
-    private static final String NOMBRE_USUARIO = "7a543b7614dbdd"; // Reemplazar
-    private static final String CONTRASENA = "1cbfe242a3f57a"; // Reemplazar
+    private static final String NOMBRE_USUARIO = "7a543b7614dbdd";
+    private static final String CONTRASENA = "1cbfe242a3f57a";
     public static final String EMAIL_REMITENTE = "bdesaavazquez@danielcastelao.org";
 
     private static final String SMTP_HOST = "sandbox.smtp.mailtrap.io";
     private static final String SMTP_PORT = "2525";
-    private static final String IMAP_HOST = "sandbox.imap.mailtrap.io";
-    private static final String IMAP_PORT = "993";
+    private static final String POP3_HOST = "pop3.mailtrap.io";
+    private static final String POP3_PORT = "1100";
 
     /**
      * Crea y configura la sesión de correo.
@@ -30,11 +30,11 @@ public class ConfiguracionCorreo {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
 
-        //Recepción (IMAP)
-        props.put("mail.store.protocol", "imap");
-        props.put("mail.imap.host", IMAP_HOST);
-        props.put("mail.imap.port", IMAP_PORT);
-        props.put("mail.imap.ssl.enable", "true");
+        //Recepción (POP3)
+        props.put("mail.store.protocol", "pop3");
+        props.put("mail.pop3.host", POP3_HOST);
+        props.put("mail.pop3.port", POP3_PORT);
+        props.put("mail.pop3.ssl.enable", "false");
 
         //devuelve la sesión
         return Session.getInstance(props, new Authenticator() {
@@ -48,5 +48,5 @@ public class ConfiguracionCorreo {
     // acceso para el lectorIMAP
     public String getNombreUsuario() { return NOMBRE_USUARIO; }
     public String getContrasena() { return CONTRASENA; }
-    public String getImapHost() { return IMAP_HOST; }
+    public String getPop3Host() { return POP3_HOST; }
 }
